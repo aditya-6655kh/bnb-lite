@@ -1,0 +1,26 @@
+{
+  "name": "bnb-lite",
+  "version": "1.0.0",
+  "description": "A lightweight Airbnb-inspired web app built with HTML, CSS, and JavaScript for the frontend, and Node.js + Express with MongoDB for the backend. This project is a smaller, simpler version of Airbnb, focused on learning full-stack development without heavy frameworks.",
+  "homepage": "https://github.com/aditya-6655kh/bnb-lite#readme",
+  "bugs": {
+    "url": "https://github.com/aditya-6655kh/bnb-lite/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aditya-6655kh/bnb-lite.git"
+  },
+  "license": "MIT ",
+  "author": "Aditya khandelwal",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.17.1"
+  }
+}

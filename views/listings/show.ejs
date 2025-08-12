@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= listing.title %></title>
+  </head>
+  <body>
+    <div class="listing">
+      <h2>Title : <%= listing.title %></h2>
+      <p>Description : <%= listing.description %></p>
+      <img src="<%= listing.image.url %>" alt="<%= listing.image.filename %>" />
+      <p>Price : ₹<%= listing.price.toLocaleString("en-IN") %></p>
+      <p>Location : <%= listing.location %>, <%= listing.country %></p>
+    </div>
+  </body>
+</html>
