@@ -4,12 +4,14 @@ const mongoose = require("mongoose");
 const Listing = require("./models/listing.js");
 const methodOverride = require("method-override");
 const path = require("path");
+const ejsMate = require('ejs-mate');
 
 app.use(methodOverride("_method"));
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.engine('ejs', ejsMate);
 
 main().catch((err) => console.log(err));
 
@@ -23,7 +25,6 @@ app.get("/", (req, res) => {
   res.send("Hello World!");
 });
 
-
 // show all the listings
 app.get("/listings", async (req, res) => {
   const listings = await Listing.find();
@@ -32,7 +33,7 @@ app.get("/listings", async (req, res) => {
 
 // create a new listing
 app.get("/listings/new", async (req, res) => {
-  res.render("listings/new.ejs");
+  res.render("listings/new.ejs", { listing: new Listing() });
 });
 
 app.post("/listings", async (req, res) => {
@@ -41,7 +42,7 @@ app.post("/listings", async (req, res) => {
   res.redirect("/listings");
 });
 
-// update route 
+// update route
 app.get("/listings/:id/edit", async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
@@ -54,14 +55,19 @@ app.put("/listings/:id", async (req, res) => {
   res.redirect("/listings");
 });
 
+// delete route
+app.delete("/listings/:id", async (req, res) => {
+  const { id } = req.params;
+  await Listing.findByIdAndDelete(id);
+  res.redirect("/listings");
+});
+
 // show a single listing
 app.get("/listings/:id", async (req, res) => {
   const { id } = req.params;
   const listing = await Listing.findById(id);
   res.render("listings/show", { listing });
 });
-
-
 
 app.listen(3000, () => {
   console.log("Server is running on : http://localhost:3000/");
