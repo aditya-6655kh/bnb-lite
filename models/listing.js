@@ -14,7 +14,15 @@ const listingSchema = new Schema({
   description: { type: String, required: true },
   image: {
     filename: { type: String, default: "default" },
-    url: { type: String, default: "Red heart.jpg" },
+    url: {
+      type: String,
+      set: (v) =>
+        v == ""
+          ? "https://imgs.search.brave.com/vEBxRu8eLA5e6VqXdX4FqDQTd11YTyry7M-byXJ7ieI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWltYWdl/cy5jb20vaW1hZ2Vz/L2xhcmdlLXByZXZp/ZXdzL2YwZS9lbGVn/YW50LWNvYXN0YWwt/aG9tZS0wNDEwLTU3/MDU1MTIuanBnP2Zt/dA"
+          : v,
+      default:
+        "https://imgs.search.brave.com/vEBxRu8eLA5e6VqXdX4FqDQTd11YTyry7M-byXJ7ieI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuZnJlZWltYWdl/cy5jb20vaW1hZ2Vz/L2xhcmdlLXByZXZp/ZXdzL2YwZS9lbGVn/YW50LWNvYXN0YWwt/aG9tZS0wNDEwLTU3/MDU1MTIuanBnP2Zt/dA",
+    },
   },
   price: { type: Number, required: true },
   location: { type: String, required: true },
