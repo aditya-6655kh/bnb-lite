@@ -1,51 +1,85 @@
 <% layout('layouts/boilerplate') %>
 <body>
-  <div class="container">
-    <h2>Create New Listing</h2>
-    <div class="form-container">
+  <div class="container row">
+    <div class="form-container col-8 offset-2">
+      <h2>Create New Listing</h2>
+
       <form action="/listings" method="POST">
-        <div class="title items">
-          <label for="title">Title:</label>
-          <input type="text" id="title" name="title" required />
+        <div class="title items mb-3">
+          <label for="title" class="form-label">Title:</label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            class="form-control"
+            required
+          />
         </div>
-        <div class="description items">
-          <label for="description">Description:</label>
-          <textarea id="description" name="description" required></textarea>
+        <div class="description items mb-3">
+          <label for="description" class="form-label">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            class="form-control"
+            required
+          ></textarea>
         </div>
-        <div class="price items">
-          <label for="price">Price:</label>
-          <input type="number" id="price" name="price" required />
+        <div class="price items mb-3">
+          <label for="price" class="form-label">Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            class="form-control"
+            required
+          />
         </div>
-        <div class="location items">
-          <label for="location">Location:</label>
-          <input type="text" id="location" name="location" required />
+        <div class="location items mb-3">
+          <label for="location" class="form-label">Location:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            class="form-control"
+            required
+          />
         </div>
-        <div class="country items">
-          <label for="country">Country:</label>
-          <input type="text" id="country" name="country" required />
+        <div class="country items mb-3">
+          <label for="country" class="form-label">Country:</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            class="form-control"
+            required
+          />
         </div>
-        <div class="image items">
-          <label for="image[filename]">Image Filename:</label>
+        <div class="image items mb-3">
+          <label for="image[filename]" class="form-label"
+            >Image Filename:</label
+          >
           <input
             type="text"
             id="filename"
             name="image[filename]"
             placeholder="e.g., photo.jpg"
-            required
+            class="form-control"
           />
         </div>
 
-        <div class="image items">
-          <label for="image[url]">Image URL:</label>
+        <div class="image items mb-3">
+          <label for="image[url]" class="form-label">Image URL:</label>
           <input
             type="text"
             id="image-url"
             name="image[url]"
             placeholder="https://example.com/photo.jpg"
-            required
+            class="form-control"
           />
         </div>
-        <button type="submit">Create Listing</button>
+        <button type="submit" class="btn btn-primary mb-3">
+          Create Listing
+        </button>
       </form>
     </div>
   </div>
